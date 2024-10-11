@@ -14,17 +14,15 @@
 
         Console.WriteLine();
 
-        SetParsNumber(GetTypePar());
+        int count = 0;
+        count = IntsOne.Count;
+        while (count > 0)
+        {
+            SetParsNumber(GetTypePar());
 
-        GetNumbers();
+            GetNumbersGUI();
+        }
 
-        SetParsNumber(GetTypePar());
-
-        GetNumbers();
-
-        Order();
-
-        GetNumbers();
 
         Console.ReadLine();
     }
@@ -102,7 +100,7 @@
         }
     }
 
-    public static void GetNumbers()
+    public static void GetNumbersGUI()
     {
         Console.WriteLine();
         foreach (var item in IntsOne)
@@ -142,13 +140,15 @@
         Console.Clear();
         Console.WriteLine("Режим игры по вертикали");
 
-        GetNumbers();
+        GetNumbersGUI();
+
         Console.WriteLine();
 
         Console.WriteLine($"Введите номер калонны пары");
+
         int columb = GetNumberConsole();
 
-        if (IntsOne[columb].Value == IntsTwo[columb].Value && IntsOne[columb].IsFree && IntsTwo[columb].IsFree)
+        if (columb < IntsOne.Count && columb < IntsTwo.Count  && IntsOne[columb].Value == IntsTwo[columb].Value && IntsOne[columb].IsFree && IntsTwo[columb].IsFree)
         {
             IntsOne[columb].IsFree = false;
             IntsTwo[columb].IsFree = false;
@@ -156,7 +156,7 @@
         else VerticalMode();
     }
 
-    public static void Order()
+    public static int Order()
     {
         var intsOne = IntsOne.Where(x => !x.IsFree);
         var intsTwo = IntsTwo.Where(x => !x.IsFree);
@@ -169,5 +169,6 @@
         {
             IntsTwo.Remove(item);
         }
+        return intsOne.Count();
     }
 }
