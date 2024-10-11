@@ -14,15 +14,14 @@
 
         Console.WriteLine();
 
-        int count = 0;
-        count = IntsOne.Count;
+        int count = IntsOne.Where(x => x.IsFree).Concat(IntsTwo.Where(y => y.IsFree)).Count();
         while (count > 0)
         {
             SetParsNumber(GetTypePar());
 
             GetNumbersGUI();
 
-
+            count = IntsOne.Where(x => x.IsFree).Concat(IntsTwo.Where(y => y.IsFree)).Count();
         }
 
 
@@ -45,7 +44,7 @@
         Console.ForegroundColor = color;
     }
 
-    public static List<int> GetNumbersList(int count = 3)
+    public static List<int> GetNumbersList(int count = 5)
     {
         List<int> list = new List<int>();
         for (int i = 0; i < count; i++)
@@ -65,7 +64,7 @@
         }
     }
 
-    public static List<Num> GetNumsList(int count = 3)
+    public static List<Num> GetNumsList(int count = 5)
     {
         List<Num> list = new List<Num>();
         for (int i = 0; i < count; i++)
@@ -85,17 +84,18 @@
         }
     }
 
-    public static TypePar GetTypePar()
+    public static TypeMode GetTypePar()
     {
-        PrintLine("Введите пара по вертикали (V) или по горизонтали (H)", ConsoleColor.Yellow);
-        string[] comand = new string[] {"H","V" };
+        PrintLine("Введите пара по вертикали (V) или по горизонтали (H), ", ConsoleColor.Yellow);
+        string[] comand = new string[] {"H","V","R" };
 
         string comm = Console.ReadLine();
 
         switch (comm)
         {
-            case "H": return TypePar.Horizontal;
-            case "V": return TypePar.Vertical;
+            case "H": return TypeMode.Horizontal;
+            case "V": return TypeMode.Vertical;
+                case "R": return TypeMode.ReOrder;
             default:
                 PrintLine("Неверный тип, попробуйте еще раз", ConsoleColor.Red);
                 return GetTypePar();
@@ -118,16 +118,19 @@
         }
     }
 
-    public static void SetParsNumber(TypePar typePar)
+    public static void SetParsNumber(TypeMode typePar)
     {
         switch (typePar)
         {
-            case TypePar.Horizontal:
+            case TypeMode.Horizontal:
                 HorizontalMode();
                 break;
 
-            case TypePar.Vertical:
+            case TypeMode.Vertical:
                 VerticalMode();
+                break;
+            case TypeMode.ReOrder:
+                Order();
                 break;
         }
     }
@@ -146,11 +149,11 @@
 
         Console.WriteLine();
 
-        Console.WriteLine($"Введите номер калонны пары");
+        Console.WriteLine($"Введите номер калонны");
 
         int columb = GetNumberConsole();
 
-        if (columb < IntsOne.Count && columb < IntsTwo.Count  && IntsOne[columb].Value == IntsTwo[columb].Value && IntsOne[columb].IsFree && IntsTwo[columb].IsFree)
+        if (columb < IntsOne.Count && columb < IntsTwo.Count  && IsColumb(columb))
         {
             IntsOne[columb].IsFree = false;
             IntsTwo[columb].IsFree = false;
@@ -158,7 +161,7 @@
         else VerticalMode();
     }
 
-    public static int Order()
+    public static void Order()
     {
         var intsOne = IntsOne.Where(x => !x.IsFree);
         var intsTwo = IntsTwo.Where(x => !x.IsFree);
@@ -171,6 +174,13 @@
         {
             IntsTwo.Remove(item);
         }
-        return intsOne.Count();
+    }
+
+    public static bool IsColumb(in int columb)
+    {
+        if(IntsOne[columb].Value == IntsTwo[columb].Value && IntsOne[columb].IsFree && IntsTwo[columb].IsFree) return true;
+        if(IntsOne[columb].Value + IntsTwo[columb].Value == 10 && IntsOne[columb].IsFree && IntsTwo[columb].IsFree) return true;
+
+        return false;
     }
 }

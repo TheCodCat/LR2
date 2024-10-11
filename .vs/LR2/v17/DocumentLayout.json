@@ -1,10 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Public\\LR2\\",
+  "WorkspaceRootPath": "C:\\Users\\home\\source\\repos\\LR2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|c:\\users\\public\\lr2\\lr2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|c:\\users\\home\\source\\repos\\lr2\\lr2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|solutionrelative:lr2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|c:\\users\\home\\source\\repos\\lr2\\lr2\\typemode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|solutionrelative:lr2\\typemode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|c:\\users\\home\\source\\repos\\lr2\\lr2\\num.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA3B3620-3A84-42B9-A6E6-E41B67A74AFB}|LR2\\LR2.csproj|solutionrelative:lr2\\num.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,13 +30,37 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Num.cs",
+              "DocumentMoniker": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\Num.cs",
+              "RelativeDocumentMoniker": "LR2\\Num.cs",
+              "ToolTip": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\Num.cs",
+              "RelativeToolTip": "LR2\\Num.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T15:06:03.042Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TypeMode.cs",
+              "DocumentMoniker": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\TypeMode.cs",
+              "RelativeDocumentMoniker": "LR2\\TypeMode.cs",
+              "ToolTip": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\TypeMode.cs",
+              "RelativeToolTip": "LR2\\TypeMode.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T14:59:10.798Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Public\\LR2\\LR2\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\Program.cs",
               "RelativeDocumentMoniker": "LR2\\Program.cs",
-              "ToolTip": "C:\\Users\\Public\\LR2\\LR2\\Program.cs",
+              "ToolTip": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\Program.cs",
               "RelativeToolTip": "LR2\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAQwHgAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA0wBMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T17:21:08.561Z",
               "EditorCaption": ""
