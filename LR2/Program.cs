@@ -23,8 +23,6 @@
         SetParsNumber(GetTypePar());
 
         GetNumbers();
-
-        Order();
     }
     public static void PrintLine(string text,ConsoleColor newcolor)
     {
@@ -135,10 +133,12 @@
 
     public static void VerticalMode()
     {
+        Console.Clear();
         Console.WriteLine("Режим игры по вертикали");
 
-        Console.WriteLine("Введите номер калонны пары");
+        GetNumbers();
 
+        Console.WriteLine($"Введите номер калонны пары");
         int columb = GetNumberConsole();
 
         if (IntsOne[columb].Value == IntsTwo[columb].Value && IntsOne[columb].IsFree && IntsTwo[columb].IsFree)
@@ -148,9 +148,5 @@
         }
         else VerticalMode();
     }
-
-    public static void Order()
-    {
-        //IntsOne.Re(IntsOne.Single(x => !x.IsFree));
     }
 }
