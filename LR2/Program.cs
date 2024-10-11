@@ -12,8 +12,6 @@
         PrintLine("Введите вторую строчку цифр", ConsoleColor.Yellow);
         IntsTwo = GetNumsList();
 
-        GetNumbers();
-
         Console.WriteLine();
 
         SetParsNumber(GetTypePar());
@@ -23,7 +21,14 @@
         SetParsNumber(GetTypePar());
 
         GetNumbers();
+
+        Order();
+
+        GetNumbers();
+
+        Console.ReadLine();
     }
+
     public static void PrintLine(string text,ConsoleColor newcolor)
     {
         ConsoleColor color = Console.ForegroundColor;
@@ -99,6 +104,7 @@
 
     public static void GetNumbers()
     {
+        Console.WriteLine();
         foreach (var item in IntsOne)
         {
             Print(item.Value.ToString(), item.GetColorIsFree());
@@ -137,6 +143,7 @@
         Console.WriteLine("Режим игры по вертикали");
 
         GetNumbers();
+        Console.WriteLine();
 
         Console.WriteLine($"Введите номер калонны пары");
         int columb = GetNumberConsole();
@@ -148,5 +155,19 @@
         }
         else VerticalMode();
     }
+
+    public static void Order()
+    {
+        var intsOne = IntsOne.Where(x => !x.IsFree);
+        var intsTwo = IntsTwo.Where(x => !x.IsFree);
+
+        foreach (var item in intsOne.ToList())
+        {
+            IntsOne.Remove(item);
+        }
+        foreach (var item in intsTwo.ToList())
+        {
+            IntsTwo.Remove(item);
+        }
     }
 }
