@@ -1,40 +1,31 @@
 ﻿class Program
 {
-    public static List<Num> intsOne = new List<Num>();
-    public static List<Num> intsTwo = new List<Num>();
+    public static List<Num> IntsOne = new List<Num>();
+    public static List<Num> IntsTwo = new List<Num>();
     static void Main()
     {
-        while (true)
-        {
-            PrintLine("Введите 9 цифр в строчке, больше 0 и мельше 10", ConsoleColor.Magenta);
+        PrintLine("Введите 9 цифр в строчке, больше 0 и мельше 10", ConsoleColor.Magenta);
 
-            PrintLine("Введите первую строчку цифр", ConsoleColor.Yellow);
-            intsOne = GetNumsList();
+        PrintLine("Введите первую строчку цифр", ConsoleColor.Yellow);
+        IntsOne = GetNumsList();
 
-            PrintLine("Введите вторую строчку цифр", ConsoleColor.Yellow);
-            intsTwo = GetNumsList();
+        PrintLine("Введите вторую строчку цифр", ConsoleColor.Yellow);
+        IntsTwo = GetNumsList();
 
-            foreach (var item in intsOne)
-            {
-                Print(item.Value.ToString(), ConsoleColor.Cyan);   
-            }
+        GetNumbers();
 
-            Console.WriteLine();
+        Console.WriteLine();
 
-            foreach (var item in intsTwo)
-            {
-                Print(item.Value.ToString(), ConsoleColor.Cyan);
-            }
+        SetParsNumber(GetTypePar());
 
-            Console.WriteLine();
+        GetNumbers();
 
-            PrintLine("Введите первую пару", ConsoleColor.Yellow);
+        SetParsNumber(GetTypePar());
 
-        }
+        GetNumbers();
+
+        Order();
     }
-
-
-
     public static void PrintLine(string text,ConsoleColor newcolor)
     {
         ConsoleColor color = Console.ForegroundColor;
@@ -89,5 +80,77 @@
             PrintLine("Произошла опечатка, попробуйте снова", ConsoleColor.Red);
             return GetNumConsole();
         }
+    }
+
+    public static TypePar GetTypePar()
+    {
+        PrintLine("Введите пара по вертикали (V) или по горизонтали (H)", ConsoleColor.Yellow);
+        string[] comand = new string[] {"H","V" };
+
+        string comm = Console.ReadLine();
+
+        switch (comm)
+        {
+            case "H": return TypePar.Horizontal;
+            case "V": return TypePar.Vertical;
+            default:
+                PrintLine("Неверный тип, попробуйте еще раз", ConsoleColor.Red);
+                return GetTypePar();
+        }
+    }
+
+    public static void GetNumbers()
+    {
+        foreach (var item in IntsOne)
+        {
+            Print(item.Value.ToString(), item.GetColorIsFree());
+        }
+
+        Console.WriteLine();
+
+        foreach (var item in IntsTwo)
+        {
+            Print(item.Value.ToString(), item.GetColorIsFree());
+        }
+    }
+
+    public static void SetParsNumber(TypePar typePar)
+    {
+        switch (typePar)
+        {
+            case TypePar.Horizontal:
+                HorizontalMode();
+                break;
+
+            case TypePar.Vertical:
+                VerticalMode();
+                break;
+        }
+    }
+
+    public static void HorizontalMode()
+    {
+        Console.WriteLine("Режим игры по горизонтали");
+    }
+
+    public static void VerticalMode()
+    {
+        Console.WriteLine("Режим игры по вертикали");
+
+        Console.WriteLine("Введите номер калонны пары");
+
+        int columb = GetNumberConsole();
+
+        if (IntsOne[columb].Value == IntsTwo[columb].Value && IntsOne[columb].IsFree && IntsTwo[columb].IsFree)
+        {
+            IntsOne[columb].IsFree = false;
+            IntsTwo[columb].IsFree = false;
+        }
+        else VerticalMode();
+    }
+
+    public static void Order()
+    {
+        //IntsOne.Re(IntsOne.Single(x => !x.IsFree));
     }
 }

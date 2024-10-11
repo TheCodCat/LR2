@@ -8,27 +8,38 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\home\\.nuget\\packages\\": {}
+    "C:\\Users\\stud.PK511-12\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\LR2.csproj",
+      "projectUniqueName": "C:\\Users\\stud.PK511-12\\Desktop\\LR2-main\\LR2\\LR2.csproj",
       "projectName": "LR2",
-      "projectPath": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\LR2.csproj",
-      "packagesPath": "C:\\Users\\home\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\home\\source\\repos\\LR2\\LR2\\obj\\",
+      "projectPath": "C:\\Users\\stud.PK511-12\\Desktop\\LR2-main\\LR2\\LR2.csproj",
+      "packagesPath": "C:\\Users\\stud.PK511-12\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\stud.PK511-12\\Desktop\\LR2-main\\LR2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\home\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\stud.PK511-12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\home\\Desktop": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

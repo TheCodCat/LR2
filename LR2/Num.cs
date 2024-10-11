@@ -8,4 +8,9 @@
         Value = value;
         IsFree = true;
     }
+    public ConsoleColor GetColorIsFree()
+    {
+        if(IsFree) return ConsoleColor.Green;
+        else return ConsoleColor.Red;
+    }
 }
