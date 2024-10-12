@@ -251,4 +251,10 @@
 
         return false;
     }
+
+    public static List<Num> AddNumsList()
+    {
+        var newList = IntsOne.Where(x => x.IsFree).Concat(IntsTwo.Where(x => x.IsFree)).ToList();
+        return newList;
+    }
 }
