@@ -21,6 +21,8 @@
 
             GetNumbersGUI();
 
+            Order();
+
             count = IntsOne.Where(x => x.IsFree).Concat(IntsTwo.Where(y => y.IsFree)).Count();
         }
 
@@ -86,8 +88,8 @@
 
     public static TypeMode GetTypePar()
     {
-        PrintLine("Введите пара по вертикали (V) или по горизонтали (H), ", ConsoleColor.Yellow);
-        string[] comand = new string[] {"H","V","R" };
+        PrintLine("Введите пара по вертикали (V) или по горизонтали (H)", ConsoleColor.Yellow);
+        string[] comand = new string[] {"H","V" };
 
         string comm = Console.ReadLine();
 
@@ -95,7 +97,6 @@
         {
             case "H": return TypeMode.Horizontal;
             case "V": return TypeMode.Vertical;
-                case "R": return TypeMode.ReOrder;
             default:
                 PrintLine("Неверный тип, попробуйте еще раз", ConsoleColor.Red);
                 return GetTypePar();
@@ -137,28 +138,95 @@
 
     public static void HorizontalMode()
     {
-        Console.WriteLine("Режим игры по горизонтали");
-    }
+		Console.Clear();
+		Console.WriteLine("Режим игры по горизонтали");
+		GetNumbersGUI();
+		Console.WriteLine();
+
+		Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
+		string command = Console.ReadLine();
+
+		switch (command)
+		{
+			case "N":
+				Console.WriteLine($"Введите номер строки");
+				int Stroka = GetNumberConsole();
+
+				Console.WriteLine();
+
+				Console.WriteLine($"Введите номер первого числа");
+				int Num1 = GetNumberConsole();
+
+				Console.WriteLine($"Введите номер второго числа");
+				int Num2 = GetNumberConsole();
+
+				switch (Stroka)
+				{
+					case 0:
+						if (IntsOne[Num1].Value == IntsOne[Num2].Value || IntsOne[Num1].Value + IntsOne[Num2].Value == 10)
+						{
+							IntsOne[Num1].IsFree = false;
+							IntsOne[Num2].IsFree = false;
+						}
+						break;
+
+					case 1:
+						if (IntsTwo[Num1].Value == IntsTwo[Num2].Value || IntsTwo[Num1].Value + IntsTwo[Num2].Value == 10)
+						{
+							IntsTwo[Num1].IsFree = false;
+							IntsTwo[Num2].IsFree = false;
+						}
+						break;
+
+					default:
+						HorizontalMode();
+						break;
+				}
+				break;
+
+			case "R":
+				SetParsNumber(GetTypePar());
+				break;
+
+			default:
+                HorizontalMode();
+				break;
+		}
+	}
 
     public static void VerticalMode()
     {
         Console.Clear();
         Console.WriteLine("Режим игры по вертикали");
-
         GetNumbersGUI();
-
         Console.WriteLine();
 
-        Console.WriteLine($"Введите номер калонны");
+        Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
+        string command = Console.ReadLine();
 
-        int columb = GetNumberConsole();
-
-        if (columb < IntsOne.Count && columb < IntsTwo.Count  && IsColumb(columb))
+        switch (command)
         {
-            IntsOne[columb].IsFree = false;
-            IntsTwo[columb].IsFree = false;
+            case "N":
+				Console.WriteLine("Ввоедите номер калонны");
+				int columb = GetNumberConsole();
+
+                if (columb < IntsOne.Count && columb < IntsTwo.Count  && IsColumb(columb))
+                {
+                    IntsOne[columb].IsFree = false;
+                    IntsTwo[columb].IsFree = false;
+                }
+                else VerticalMode();
+                break;
+
+			case "R":
+				SetParsNumber(GetTypePar());
+				break;
+
+			default:
+				VerticalMode();
+				break;
         }
-        else VerticalMode();
+
     }
 
     public static void Order()
