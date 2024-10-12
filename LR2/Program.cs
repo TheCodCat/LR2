@@ -91,7 +91,7 @@
         PrintLine("Введите пара по вертикали (V) или по горизонтали (H)", ConsoleColor.Yellow);
         string[] comand = new string[] {"H","V" };
 
-        string comm = Console.ReadLine();
+        string comm = Console.ReadLine() + string.Empty;
 
         switch (comm)
         {
@@ -144,7 +144,7 @@
 		Console.WriteLine();
 
 		Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
-		string command = Console.ReadLine();
+		string command = Console.ReadLine() + string.Empty;
 
 		switch (command)
 		{
@@ -202,7 +202,7 @@
         Console.WriteLine();
 
         Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
-        string command = Console.ReadLine();
+        string command = Console.ReadLine() + string.Empty;
 
         switch (command)
         {
