@@ -2,6 +2,7 @@
 {
     public static List<Num> IntsOne = new List<Num>();
     public static List<Num> IntsTwo = new List<Num>();
+    public static string[] command = { "V", "H", "R", "N", "L" };
     static void Main()
     {
         PrintLine("Введите 9 цифр в строчке, больше 0 и мельше 10", ConsoleColor.Magenta);
@@ -13,6 +14,7 @@
         IntsTwo = GetNumsList();
 
         Console.WriteLine();
+        GetNumbersGUI();
 
         int count = IntsOne.Where(x => x.IsFree).Concat(IntsTwo.Where(y => y.IsFree)).Count();
         while (count > 0)
@@ -21,13 +23,9 @@
 
             GetNumbersGUI();
 
-            Order();
-
             count = IntsOne.Where(x => x.IsFree).Concat(IntsTwo.Where(y => y.IsFree)).Count();
         }
-
-
-        Console.ReadLine();
+        PrintLine("Вы проиграли", ConsoleColor.Magenta);
     }
 
     public static void PrintLine(string text,ConsoleColor newcolor)
@@ -88,15 +86,17 @@
 
     public static TypeMode GetTypePar()
     {
-        PrintLine("Введите пара по вертикали (V) или по горизонтали (H)", ConsoleColor.Yellow);
-        string[] comand = new string[] {"H","V" };
+        PrintLine("Введите пара по вертикали (V) или по горизонтали (H),сброс вычеркнутых (R), Сдаться (L)", ConsoleColor.Yellow);
 
         string comm = Console.ReadLine() + string.Empty;
+        var comt = command.Single(x => x.Contains(comm,StringComparison.CurrentCultureIgnoreCase));
 
-        switch (comm)
+        switch (comt)
         {
             case "H": return TypeMode.Horizontal;
             case "V": return TypeMode.Vertical;
+            case "R": return TypeMode.Reset;
+            case "L": return TypeMode.Lose;
             default:
                 PrintLine("Неверный тип, попробуйте еще раз", ConsoleColor.Red);
                 return GetTypePar();
@@ -130,8 +130,13 @@
             case TypeMode.Vertical:
                 VerticalMode();
                 break;
-            case TypeMode.ReOrder:
+
+            case TypeMode.Reset:
                 Order();
+                break;
+
+            case TypeMode.Lose:
+                Lose();
                 break;
         }
     }
@@ -144,9 +149,11 @@
 		Console.WriteLine();
 
 		Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
-		string command = Console.ReadLine() + string.Empty;
+        string commanda = Console.ReadLine() + string.Empty;
 
-		switch (command)
+        var comt = command.Single(x => x.Contains(commanda, StringComparison.CurrentCultureIgnoreCase));
+
+        switch (comt)
 		{
 			case "N":
 				Console.WriteLine($"Введите номер строки");
@@ -202,9 +209,10 @@
         Console.WriteLine();
 
         Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
-        string command = Console.ReadLine() + string.Empty;
+        string commanda = Console.ReadLine() + string.Empty;
 
-        switch (command)
+        var comt = command.Single(x => x.Contains(commanda, StringComparison.CurrentCultureIgnoreCase));
+        switch (comt)
         {
             case "N":
 				Console.WriteLine("Ввоедите номер калонны");
@@ -242,6 +250,12 @@
         {
             IntsTwo.Remove(item);
         }
+    }
+
+    public static void Lose()
+    {
+        IntsOne.Clear();
+        IntsTwo.Clear();
     }
 
     public static bool IsColumb(in int columb)

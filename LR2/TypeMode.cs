@@ -1,4 +1,4 @@
 ﻿public enum TypeMode
 {
-    Vertical, Horizontal, ReOrder
+    Vertical, Horizontal, Reset, Lose
 }
