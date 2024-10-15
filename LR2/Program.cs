@@ -89,7 +89,7 @@
         PrintLine("Введите пара по вертикали (V) или по горизонтали (H),сброс вычеркнутых (R), Сдаться (L)", ConsoleColor.Yellow);
 
         string comm = Console.ReadLine() + string.Empty;
-        var comt = command.Single(x => x.Contains(comm,StringComparison.CurrentCultureIgnoreCase));
+        var comt = command.SingleOrDefault(x => x.Contains(comm,StringComparison.CurrentCultureIgnoreCase));
 
         switch (comt)
         {
@@ -151,7 +151,7 @@
 		Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
         string commanda = Console.ReadLine() + string.Empty;
 
-        var comt = command.Single(x => x.Contains(commanda, StringComparison.CurrentCultureIgnoreCase));
+        var comt = command.SingleOrDefault(x => x.Contains(commanda, StringComparison.CurrentCultureIgnoreCase));
 
         switch (comt)
 		{
@@ -211,7 +211,7 @@
         Console.WriteLine($"Продолжить \"N\" или \"R\" - назад");
         string commanda = Console.ReadLine() + string.Empty;
 
-        var comt = command.Single(x => x.Contains(commanda, StringComparison.CurrentCultureIgnoreCase));
+        var comt = command.SingleOrDefault(x => x.Contains(commanda, StringComparison.CurrentCultureIgnoreCase));
         switch (comt)
         {
             case "N":
